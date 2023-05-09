@@ -46,6 +46,16 @@
 			"flexBasis": "0%"
 		}
 	},
+	"items-center": {
+		"style": {
+			"alignItems": "center"
+		}
+	},
+	"justify-center": {
+		"style": {
+			"justifyContent": "center"
+		}
+	},
 	"border": {
 		"style": {
 			"borderTopWidth": 1,
@@ -54,10 +64,31 @@
 			"borderLeftWidth": 1
 		}
 	},
-	"bg-red-200": {
+	"bg-[#55c8eb]": {
 		"style": {
 			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(254 202 202 / var(--tw-bg-opacity))"
+			"backgroundColor": "rgb(85 200 235 / var(--tw-bg-opacity))"
+		}
+	},
+	"font-karla": {
+		"style": {
+			"fontFamily": "karla"
+		}
+	},
+	"text-lg": {
+		"style": {
+			"fontSize": 18,
+			"lineHeight": 28
+		}
+	},
+	"text-[20px]": {
+		"style": {
+			"fontSize": 20
+		}
+	},
+	"font-bold": {
+		"style": {
+			"fontWeight": "700"
 		}
 	},
 	"uppercase": {

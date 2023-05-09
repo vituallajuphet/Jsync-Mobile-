@@ -34,13 +34,38 @@
   flex: 1 1 0%
 }
 
+.items-center {
+  align-items: center
+}
+
+.justify-center {
+  justify-content: center
+}
+
 .border {
   border-width: 1px
 }
 
-.bg-red-200 {
+.bg-\[\#55c8eb\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(254 202 202 / var(--tw-bg-opacity))
+  background-color: rgb(85 200 235 / var(--tw-bg-opacity))
+}
+
+.font-karla {
+  font-family: karla
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem
+}
+
+.text-\[20px\] {
+  font-size: 20px
+}
+
+.font-bold {
+  font-weight: 700
 }
 
 .uppercase {
