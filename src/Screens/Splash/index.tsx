@@ -1,17 +1,14 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Button} from 'react-native';
 import React, {useEffect} from 'react';
 import {useTailwind} from 'tailwind-rn';
-import {getAllHomeData} from '../../api';
-import {useRecoilValue} from 'recoil';
-import axios from 'axios';
-import {bannerData} from '../../recoil/selectors';
 
 const Splash = props => {
   const tw = useTailwind();
 
-  const data = useRecoilValue(bannerData);
+  const {navigation} = props;
+  // const data = useRecoilValue(bannerData);
 
-  console.log('databanner', data);
+  // console.log('databanner', data);
 
   return (
     <View style={tw('bg-[#8be2f6] flex-1 items-center justify-center')}>
@@ -23,6 +20,12 @@ const Splash = props => {
           source={require('../../assets/images/logo.png')}
           style={tw('w-[70px] h-[70px]')}
           resizeMode="cover"
+        />
+        <Button
+          title="button"
+          onPress={() => {
+            navigation?.navigate('home');
+          }}
         />
       </View>
     </View>

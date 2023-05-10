@@ -18,6 +18,14 @@
   margin-bottom: 1rem
 }
 
+.mr-2 {
+  margin-right: 0.5rem
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem
+}
+
 .block {
   display: block
 }
@@ -42,8 +50,16 @@
   height: 70px
 }
 
-.h-full {
-  height: 100%
+.h-\[130px\] {
+  height: 130px
+}
+
+.h-\[120px\] {
+  height: 120px
+}
+
+.w-\[200px\] {
+  width: 200px
 }
 
 .w-\[70px\] {
@@ -52,6 +68,10 @@
 
 .w-full {
   width: 100%
+}
+
+.w-\[300px\] {
+  width: 300px
 }
 
 .flex-1 {
@@ -79,9 +99,9 @@
   background-color: rgb(139 226 246 / var(--tw-bg-opacity))
 }
 
-.bg-red-200 {
+.bg-green-200 {
   --tw-bg-opacity: 1;
-  background-color: rgb(254 202 202 / var(--tw-bg-opacity))
+  background-color: rgb(187 247 208 / var(--tw-bg-opacity))
 }
 
 .bg-white {
@@ -93,12 +113,35 @@
   padding: 1rem
 }
 
+.p-2 {
+  padding: 0.5rem
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem
+}
+
 .font-karla {
   font-family: karla
 }
 
 .text-\[28px\] {
   font-size: 28px
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem
+}
+
+.font-bold {
+  font-weight: 700
 }
 
 .uppercase {
