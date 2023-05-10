@@ -12,7 +12,7 @@ const RootNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="splash">
+        initialRouteName="home">
         <Stack.Screen name="home" component={Home} />
         <Stack.Screen name="splash" component={Splash} />
       </Stack.Navigator>

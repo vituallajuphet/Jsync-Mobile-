@@ -2,20 +2,16 @@ import {View, Text, Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {getAllHomeData} from '../../api';
+import {useRecoilValue} from 'recoil';
 import axios from 'axios';
+import {bannerData} from '../../recoil/selectors';
 
 const Splash = props => {
   const tw = useTailwind();
 
-  const fetch = async () => {
-    const res = await getAllHomeData();
+  const data = useRecoilValue(bannerData);
 
-    console.log('@data', res);
-  };
-
-  useEffect(() => {
-    fetch();
-  }, []);
+  console.log('databanner', data);
 
   return (
     <View style={tw('bg-[#8be2f6] flex-1 items-center justify-center')}>
