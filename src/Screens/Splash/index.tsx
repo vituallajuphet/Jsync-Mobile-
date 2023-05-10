@@ -18,9 +18,9 @@ const Splash = props => {
   }, []);
 
   return (
-    <View style={tw('bg-[#7af56f] flex-1 items-center justify-center')}>
-      <Text style={tw('font-karla font-bold text-[26px] text-white mb-4')}>
-        JSYNC
+    <View style={tw('bg-[#8be2f6] flex-1 items-center justify-center')}>
+      <Text style={tw('font-karla text-[28px] text-white mb-4')}>
+        JSYNC MOBILE
       </Text>
       <View>
         <Image

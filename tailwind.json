@@ -44,29 +44,9 @@
 			"display": "none"
 		}
 	},
-	"h-[50px]": {
-		"style": {
-			"height": 50
-		}
-	},
-	"h-[60px]": {
-		"style": {
-			"height": 60
-		}
-	},
 	"h-[70px]": {
 		"style": {
 			"height": 70
-		}
-	},
-	"w-[50px]": {
-		"style": {
-			"width": 50
-		}
-	},
-	"w-[60px]": {
-		"style": {
-			"width": 60
 		}
 	},
 	"w-[70px]": {
@@ -105,10 +85,10 @@
 			"backgroundColor": "rgb(85 200 235 / var(--tw-bg-opacity))"
 		}
 	},
-	"bg-[#7af56f]": {
+	"bg-[#8be2f6]": {
 		"style": {
 			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(122 245 111 / var(--tw-bg-opacity))"
+			"backgroundColor": "rgb(139 226 246 / var(--tw-bg-opacity))"
 		}
 	},
 	"font-karla": {
@@ -116,30 +96,14 @@
 			"fontFamily": "karla"
 		}
 	},
-	"text-lg": {
-		"style": {
-			"fontSize": 18,
-			"lineHeight": 28
-		}
-	},
-	"text-[20px]": {
-		"style": {
-			"fontSize": 20
-		}
-	},
 	"text-[30px]": {
 		"style": {
 			"fontSize": 30
 		}
 	},
-	"text-[26px]": {
+	"text-[28px]": {
 		"style": {
-			"fontSize": 26
-		}
-	},
-	"font-bold": {
-		"style": {
-			"fontWeight": "700"
+			"fontSize": 28
 		}
 	},
 	"uppercase": {
@@ -152,10 +116,20 @@
 			"textTransform": "capitalize"
 		}
 	},
+	"italic": {
+		"style": {
+			"fontStyle": "italic"
+		}
+	},
 	"text-white": {
 		"style": {
 			"--tw-text-opacity": 1,
 			"color": "rgb(255 255 255 / var(--tw-text-opacity))"
+		}
+	},
+	"underline": {
+		"style": {
+			"textDecorationLine": "underline"
 		}
 	}
 }
