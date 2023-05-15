@@ -5,6 +5,7 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import React from 'react';
 import {useRecoilValue} from 'recoil';
@@ -19,7 +20,6 @@ const Home = prop => {
   const data = useRecoilValue(bannerData);
 
   const renderitem = ({item}) => {
-    console.log('item', item);
     return (
       <TouchableOpacity style={tw('rounded-sm w-[300px] p-2 py-4 bg-white')}>
         <Image
@@ -35,6 +35,10 @@ const Home = prop => {
       </TouchableOpacity>
     );
   };
+
+  if (!data?.length) {
+    return <ActivityIndicator size={'large'} color={'red'} />;
+  }
 
   return (
     <View style={tw('flex-1')}>

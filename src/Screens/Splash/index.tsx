@@ -1,11 +1,14 @@
 import {View, Text, Image, Button} from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useTailwind} from 'tailwind-rn';
 
 const Splash = props => {
   const tw = useTailwind();
 
+  const [userInfo, setUserInfo] = useState<any>();
+
   const {navigation} = props;
+
   // const data = useRecoilValue(bannerData);
 
   // console.log('databanner', data);
