@@ -1,25 +1,26 @@
-import * as React from 'react';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Boarding, Home, Splash} from '../Screens';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {ActivityIndicator} from 'react-native';
+import {getData, removeData} from '../utils/localStorage';
 
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
-  const [isFirstLaunched, setFirstLaunched] = React.useState(false);
+  // removeData('hasLaunched');
 
-  const getData = async () => {
-    try {
-      const value = await AsyncStorage.getItem('isLaunched');
-      if (value !== null) {
-        // value previously stored
-        console.log('not');
-      }
-    } catch (e) {
-      // error reading value
-    }
-  };
+  const [state, setState] = React.useState('loading');
+
+  getData('hasLaunched').then((res: any) => {
+    setState(res !== null ? res : 'boarding');
+  });
+
+  if (state === 'loading') {
+    return <ActivityIndicator size={'large'} color={'red'} />;
+  }
+
+  console.log('state', state);
 
   return (
     <NavigationContainer>
@@ -27,7 +28,7 @@ const RootNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="boarding">
+        initialRouteName={state}>
         <Stack.Screen name="home" component={Home} />
         <Stack.Screen name="splash" component={Splash} />
         <Stack.Screen name="boarding" component={Boarding} />
