@@ -53,9 +53,10 @@ const OnBoarding = ({navigation}) => {
                   navigation.navigate('home');
                 }}
                 style={tw(
-                  'bg-[#0d85c6] rounded-lg p-4  w-full items-center justify-center',
+                  'bg-[#0d85c6] rounded-[20px] p-4 max-w-[80%]  w-full items-center justify-center',
                 )}>
-                <Text style={tw('font-bold text-[18px] font-karla text-white')}>
+                <Text
+                  style={tw('font-bold text-[18px]  font-karla text-white')}>
                   START
                 </Text>
               </TouchableOpacity>

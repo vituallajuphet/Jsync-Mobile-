@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Boarding, Home, Splash} from '../Screens';
 import {ActivityIndicator} from 'react-native';
 import {getData, removeData} from '../utils/localStorage';
+import AuthScreens from '../Screens/AuthScreens';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,8 +29,8 @@ const RootNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName={state}>
-        <Stack.Screen name="home" component={Home} />
+        initialRouteName={'authscreen'}>
+        <Stack.Screen name="authscreen" component={AuthScreens} />
         <Stack.Screen name="splash" component={Splash} />
         <Stack.Screen name="boarding" component={Boarding} />
       </Stack.Navigator>

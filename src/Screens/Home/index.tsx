@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
   ActivityIndicator,
+  SafeAreaView,
 } from 'react-native';
 import React from 'react';
 import {useRecoilValue} from 'recoil';
@@ -41,18 +42,20 @@ const Home = prop => {
   }
 
   return (
-    <View style={tw('flex-1')}>
-      <View style={tw('py-4')}>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={item => item._id}
-          scrollEnabled
-          horizontal
-          data={data}
-          renderItem={renderitem}
-        />
+    <SafeAreaView style={tw('flex-1')}>
+      <View style={tw('flex-1')}>
+        <View style={tw('py-4')}>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={item => item._id}
+            scrollEnabled
+            horizontal
+            data={data}
+            renderItem={renderitem}
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
