@@ -3,6 +3,7 @@ module.exports = {
   theme: {
     fontFamily: {
       karla: ['karla'],
+      millenia: ['millenia'],
     },
   },
   plugins: [],

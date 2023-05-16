@@ -44,6 +44,8 @@
 		65826F8F2A1354700022B222 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65826F702A1354700022B222 /* SimpleLineIcons.ttf */; };
 		65826F902A1354700022B222 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65826F712A1354700022B222 /* MaterialIcons.ttf */; };
 		65826F912A1354700022B222 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65826F712A1354700022B222 /* MaterialIcons.ttf */; };
+		65826F932A13791C0022B222 /* millenia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65826F922A13791C0022B222 /* millenia.ttf */; };
+		65826F942A13791C0022B222 /* millenia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65826F922A13791C0022B222 /* millenia.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-jsyncApp-jsyncAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-jsyncApp-jsyncAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8514E195926E4FD99D3332CF /* karla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78CF63FC96484486940FD662 /* karla.ttf */; };
@@ -90,6 +92,7 @@
 		65826F6F2A1354700022B222 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		65826F702A1354700022B222 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		65826F712A1354700022B222 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		65826F922A13791C0022B222 /* millenia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = millenia.ttf; path = ../src/assets/fonts/millenia.ttf; sourceTree = "<group>"; };
 		78CF63FC96484486940FD662 /* karla.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = karla.ttf; path = ../src/assets/fonts/karla.ttf; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = jsyncApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-jsyncApp-jsyncAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jsyncApp-jsyncAppTests.release.xcconfig"; path = "Target Support Files/Pods-jsyncApp-jsyncAppTests/Pods-jsyncApp-jsyncAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +162,7 @@
 		4BB90F462D8A42CE95ACFDA0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65826F922A13791C0022B222 /* millenia.ttf */,
 				78CF63FC96484486940FD662 /* karla.ttf */,
 			);
 			name = Resources;
@@ -320,6 +324,7 @@
 			files = (
 				65826F752A1354700022B222 /* Octicons.ttf in Resources */,
 				65826F812A1354700022B222 /* Foundation.ttf in Resources */,
+				65826F942A13791C0022B222 /* millenia.ttf in Resources */,
 				65826F8F2A1354700022B222 /* SimpleLineIcons.ttf in Resources */,
 				65826F832A1354700022B222 /* Ionicons.ttf in Resources */,
 				65826F8D2A1354700022B222 /* EvilIcons.ttf in Resources */,
@@ -360,6 +365,7 @@
 				65826F722A1354700022B222 /* Fontisto.ttf in Resources */,
 				65826F7C2A1354700022B222 /* MaterialCommunityIcons.ttf in Resources */,
 				8514E195926E4FD99D3332CF /* karla.ttf in Resources */,
+				65826F932A13791C0022B222 /* millenia.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
