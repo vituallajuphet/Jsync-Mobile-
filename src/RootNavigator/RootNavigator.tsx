@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Boarding, Home, Splash} from '../Screens';
+import {Boarding, Home, Login, Splash} from '../Screens';
 import {ActivityIndicator} from 'react-native';
 import {getData, removeData} from '../utils/localStorage';
 import AuthScreens from '../Screens/AuthScreens';
@@ -29,7 +29,8 @@ const RootNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName={'authscreen'}>
+        initialRouteName={'login'}>
+        <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="authscreen" component={AuthScreens} />
         <Stack.Screen name="splash" component={Splash} />
         <Stack.Screen name="boarding" component={Boarding} />
