@@ -1,11 +1,23 @@
-import {View, Text, SafeAreaView, TextInput, Button} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  Button,
+  Platform,
+} from 'react-native';
 import React, {useState} from 'react';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import {auth, storage} from '../../firebase';
-import {getDownloadURL, ref, uploadBytes} from 'firebase/storage';
+import {
+  getDownloadURL,
+  ref,
+  uploadBytes,
+  uploadBytesResumable,
+  uploadString,
+} from 'firebase/storage';
 import {useTailwind} from 'tailwind-rn/dist';
-import {v4} from 'uuid';
-import {launchImageLibrary} from 'react-native-image-picker';
+import ImageCropPicker from 'react-native-image-crop-picker';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -45,9 +57,7 @@ const Login = () => {
     if (image == null) {
       return null;
     }
-    const uploadUri = image?.uri;
-
-    console.log('uploadUri', uploadUri);
+    const uploadUri = image;
 
     let filename = uploadUri.substring(uploadUri.lastIndexOf('/') + 1);
 
@@ -60,30 +70,71 @@ const Login = () => {
     setTransferred(0);
 
     console.log('filename', filename);
+    const metadata = {
+      contentType: 'image/jpeg',
+    };
 
     const imageRef = ref(storage, `jsync_profiles/${filename}`);
-    uploadBytes(imageRef, image).then(snapshot => {
-      getDownloadURL(snapshot.ref).then(url => {
-        console.log('urlss', url);
-      });
-    });
+
+    const uploadTask = uploadBytesResumable(imageRef, uploadUri, metadata);
+
+    uploadTask.on(
+      'state_changed',
+      snapshot => {
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done');
+        switch (snapshot.state) {
+          case 'paused':
+            console.log('Upload is paused');
+            break;
+          case 'running':
+            console.log('Upload is running');
+            break;
+        }
+      },
+      error => {
+        // A full list of error codes is available at
+        // https://firebase.google.com/docs/storage/web/handle-errors
+        switch (error.code) {
+          case 'storage/unauthorized':
+            // User doesn't have permission to access the object
+            break;
+          case 'storage/canceled':
+            // User canceled the upload
+            break;
+
+          // ...
+
+          case 'storage/unknown':
+            // Unknown error occurred, inspect error.serverResponse
+            break;
+        }
+      },
+      () => {
+        // Upload completed successfully, now we can get the download URL
+        getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
+          console.log('File available at', downloadURL);
+        });
+      },
+    );
   };
 
   const pickImage = async () => {
-    try {
-      const result = await launchImageLibrary({
-        mediaType: 'photo',
-        includeBase64: true,
-        quality: 0.3,
+    ImageCropPicker.openPicker({
+      width: 1200,
+      height: 780,
+      cropping: true,
+    })
+      .then(image => {
+        console.log(image);
+        const imageUri = Platform.OS === 'ios' ? image.sourceURL : image.path;
+        setImage(imageUri);
+      })
+      .catch(err => {
+        console.log('errr', err);
       });
-
-      if (result.assets) {
-        const source = {uri: result.assets[0].uri};
-
-        // console.log('result.assets', result.assets);
-        setImage(source);
-      }
-    } catch (error) {}
   };
 
   return (
@@ -111,14 +162,14 @@ const Login = () => {
         />
         <Button
           title="Pick"
-          onPress={() => {
-            pickImage();
+          onPress={async () => {
+            await pickImage();
           }}
         />
         <Button
           title="upload"
           onPress={async () => {
-            uploadImage();
+            await uploadImage();
           }}
         />
       </View>
