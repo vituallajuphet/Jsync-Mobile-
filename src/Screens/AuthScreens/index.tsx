@@ -25,21 +25,21 @@ const AuthScreens = () => {
             resizeMode="contain"
             style={tw('w-[40px] h-[40px] mr-2')}
           /> */}
-          <Text style={tw('font-millenia text-xl')}>JsyncHub</Text>
+          <Text style={tw('font-millenia text-xl text-[#222]')}>JsyncHub</Text>
         </View>
         <View style={tw('flex-row items-center justify-end')}>
           <TouchableOpacity
             style={tw(
               'bg-[#f3f0f0] rounded-full items-center justify-center p-2',
             )}>
-            <FIcon name="search" size={21} />
+            <FIcon name="search" size={21} color={'#222'} />
           </TouchableOpacity>
           <TouchableOpacity
             style={[
               tw('ml-4'),
               tw('bg-[#f3f0f0] rounded-full items-center justify-center p-2'),
             ]}>
-            <FIcon name="message-circle" size={21} />
+            <FIcon name="message-circle" size={21} color={'#222'} />
           </TouchableOpacity>
         </View>
       </View>
@@ -65,6 +65,7 @@ const AuthScreens = () => {
               <Icon name="user" color={color} size={size} />
             ),
             tabBarShowLabel: false,
+            headerShown: false,
           }}
         />
         <Tab.Screen
