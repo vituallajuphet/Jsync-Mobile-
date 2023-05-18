@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "414982914077",
+    "project_id": "jsync-1ff61",
+    "storage_bucket": "jsync-1ff61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414982914077:android:5483e87b00f626c66e86f4",
+        "android_client_info": {
+          "package_name": "com.jsyncapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414982914077-6v4p9p5svjdfhnlt9oighbm5lfmtk7dh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt8nY_LKDVuubWJe30FLx44aIYe9Ngwo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414982914077-6v4p9p5svjdfhnlt9oighbm5lfmtk7dh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

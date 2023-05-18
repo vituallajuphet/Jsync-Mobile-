@@ -6,9 +6,11 @@ import {
   Button,
   Platform,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {signInWithEmailAndPassword} from 'firebase/auth';
-import {auth, storage} from '../../firebase';
+// import {auth, storage} from '../../firebase';
+import storage from '@react-native-firebase/storage';
+import {utils} from '@react-native-firebase/app';
 import {
   getDownloadURL,
   ref,
@@ -18,6 +20,7 @@ import {
 } from 'firebase/storage';
 import {useTailwind} from 'tailwind-rn/dist';
 import ImageCropPicker from 'react-native-image-crop-picker';
+import auth from '@react-native-firebase/auth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -29,7 +32,8 @@ const Login = () => {
     if (!email || !pass) {
       return;
     }
-    signInWithEmailAndPassword(auth, email, pass)
+    auth()
+      .signInWithEmailAndPassword(email, pass)
       .then((res: any) => {
         console.log('res', res);
       })
@@ -37,6 +41,21 @@ const Login = () => {
         console.log('errs', e);
       });
   };
+
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
+
+  // Handle user state changes
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
 
   const [image, setImage] = useState<any>(null);
   const [uploading, setUploading] = useState<any>(false);
@@ -69,56 +88,14 @@ const Login = () => {
     setUploading(true);
     setTransferred(0);
 
-    console.log('filename', filename);
-    const metadata = {
-      contentType: 'image/jpeg',
-    };
+    const reference = storage().ref('/jsync_profiles/' + filename);
 
-    const imageRef = ref(storage, `jsync_profiles/${filename}`);
+    await reference.putFile(uploadUri).then(res => {
+      console.log('uploaded');
+    });
 
-    const uploadTask = uploadBytesResumable(imageRef, uploadUri, metadata);
-
-    uploadTask.on(
-      'state_changed',
-      snapshot => {
-        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
-        switch (snapshot.state) {
-          case 'paused':
-            console.log('Upload is paused');
-            break;
-          case 'running':
-            console.log('Upload is running');
-            break;
-        }
-      },
-      error => {
-        // A full list of error codes is available at
-        // https://firebase.google.com/docs/storage/web/handle-errors
-        switch (error.code) {
-          case 'storage/unauthorized':
-            // User doesn't have permission to access the object
-            break;
-          case 'storage/canceled':
-            // User canceled the upload
-            break;
-
-          // ...
-
-          case 'storage/unknown':
-            // Unknown error occurred, inspect error.serverResponse
-            break;
-        }
-      },
-      () => {
-        // Upload completed successfully, now we can get the download URL
-        getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
-          console.log('File available at', downloadURL);
-        });
-      },
-    );
+    const url = await reference.getDownloadURL();
+    console.log('url', url);
   };
 
   const pickImage = async () => {
